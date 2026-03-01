@@ -101,13 +101,12 @@ sensor:
       filters:
         - throttle_average: 30s
 
-  - platform: template
-    name: $friendly_name ESP32 Internal Temp
+ - platform: internal_temperature #This template works with framework ESP-IDF
+    name: "${friendly_name} ESP32 Internal Temp"
+    update_interval: 60s
     device_class: temperature
     unit_of_measurement: °C
     id: esp32_temp
-    lambda: return temperatureRead();
-    update_interval: 600s
 
   - platform: wifi_signal
     name: "WiFi Signal"
